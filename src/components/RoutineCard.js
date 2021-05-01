@@ -12,11 +12,21 @@ export default function RoutineCard({ content, setTodo, todo }) {
         setTodo(todo.map(item => item.key === content.key ? {...item, completed: toggle}: item))
     }
 
+    //strikethrough style
+    const cancel = {
+        textDecoration: 'line-through'
+    }
+    const good = {
+        textDecoration: 'none'
+    }
+
     return (
-        <div>
-            <p>{content.task}</p>
-            <button onClick={() => removeCard(content.key)}>done</button>
-            <button onClick={toggleDone}>{content.completed ? 'true' : 'false'}</button>
+        <div className='list-card'>
+            <p style={content.completed ? cancel : good}>{content.task}</p>
+            <div>
+                <button onClick={() => removeCard(content.key)}>Remove<i className="fi-rr-add"></i></button>
+                <button onClick={toggleDone}>Done</button>
+            </div>
         </div>
     )
 }

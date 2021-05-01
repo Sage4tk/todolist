@@ -22,7 +22,7 @@ export default function Main() {
     });
 
     return (
-        <div>
+        <div className='main'>
             <Form todo={todo} setTodo={setTodo} />
             <Routine todo={todo} setTodo={setTodo} />
         </div>
