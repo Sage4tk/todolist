@@ -16,15 +16,15 @@ export default function Main() {
         }
     }, []);
 
-    //save
-    const saveList = () => {
+    //save 
+    useEffect(() => {
         localStorage.setItem('list', JSON.stringify(todo));
-    }
+    });
+
     return (
         <div>
             <Form todo={todo} setTodo={setTodo} />
             <Routine todo={todo} setTodo={setTodo} />
-            <button onClick={saveList}>Save</button>
         </div>
     )
 }
